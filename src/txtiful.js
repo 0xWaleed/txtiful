@@ -141,16 +141,33 @@ class Parser
         };
     }
 
+    parseWrappedText() {
+        const text = this._currentToken;
+        this.eatTokenOfType("WRAPPED_TEXT");
+        return {
+            type: "WRAPPED_TEXT",
+            value: text.value
+        };
+    }
+
+    _getContent() {
+        try {
+            switch (this._currentToken.type) {
+                case "TEXT":
+                    return this.parseText().value;
+                case "WRAPPED_TEXT":
+                    return this.parseWrappedText().value;
+            }
+        } catch {
+            return "";
+        }
+
+    }
 
     parseModifier() {
         const modifier = this._currentToken;
         this.eatTokenOfType("MODIFIER");
-        let content
-        try {
-            content = this.eatTokenOfType(["TEXT", "WRAPPED_TEXT"])?.value;
-        } catch {
-            content = "";
-        }
+        const content = this._getContent();
         return {
             type: "MODIFIER",
             value: modifier.value,
