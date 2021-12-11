@@ -145,11 +145,16 @@ class Parser
     parseModifier() {
         const modifier = this._currentToken;
         this.eatTokenOfType("MODIFIER");
-        const content = this.eatTokenOfType(["TEXT", "WRAPPED_TEXT"]);
+        let content
+        try {
+            content = this.eatTokenOfType(["TEXT", "WRAPPED_TEXT"])?.value;
+        } catch {
+            content = "";
+        }
         return {
             type: "MODIFIER",
             value: modifier.value,
-            content: content.value
+            content: content
         };
     }
 

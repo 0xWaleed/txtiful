@@ -40,4 +40,9 @@ describe("txtiful", () =>
     {
         expect(txtiful("[green]Hello world[red](!)")).to.equals("<span style=\"color:green;\">Hello world</span><span style=\"color:red;\">!</span>");
     });
+
+    it("should able to generate without TEXT,WRAPPED_TEXT", () =>
+    {
+        expect(txtiful("[green]")).to.equals("<span style=\"color:green;\"></span>");
+    });
 });
