@@ -231,11 +231,15 @@ function generate(tree) {
 }
 
 function interpret(text) {
-    const tree = new Parser(new Tokenizer(text))
-        .parse();
-    return generate(tree);
+    const parser = new Parser(new Tokenizer(text));
+    return generate(parser.parse());
 }
 
+/**
+ * Parse and generate html with colors.
+ * @param {string} text
+ * @returns {string|undefined}
+ */
 function txtiful(text) {
     if (!text) {
         return;

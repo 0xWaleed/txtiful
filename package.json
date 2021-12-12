@@ -1,6 +1,6 @@
 {
-  "name": "txtiful",
-  "version": "0.1.0",
+  "name": "txtiful-js",
+  "version": "1.0.0",
   "description": "A simple way to colorize part of your text",
   "main": "dist/txtiful.js",
   "files": [
@@ -12,7 +12,6 @@
   "scripts": {
     "test": "mocha",
     "build": "rollup -c",
-    "pack": "npm run build && npm pack",
     "publish": "npm run build && npm publish"
   },
   "repository": {
