@@ -1,27 +1,36 @@
 {
   "name": "txtiful",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A simple way to colorize part of your text",
+  "main": "dist/txtiful.js",
+  "files": [
+    "dist/txtiful.js"
+  ],
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "build": "rollup -c",
+    "pack": "npm run build && npm pack",
+    "publish": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/0xWaleed/txtiful.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "0xWaleed <https://github.com/0xWaleed>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/0xWaleed/txtiful/issues"
   },
   "homepage": "https://github.com/0xWaleed/txtiful#readme",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
     "chai": "^4.3.4",
-    "mocha": "^9.1.3"
+    "mocha": "^9.1.3",
+    "rollup": "^2.61.1"
   }
 }
